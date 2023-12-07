@@ -77,11 +77,66 @@ void piate() {
 	} while (a>0);
 }
 
+void buzki(int smile_number) {
+	int i = smile_number;
+	do
+	{
+		cout << i << endl;
+		i--;
+	} while (i>=1);
+}
+
+void buzki2(int smile_number){
+	for (int i = 0; i < smile_number; i++)
+	{
+		cout << " :)" << endl;
+	}
+}
+
+void tablice() {
+	int tab1[6] = { 3,4,1,57,32,2 };
+	float tab2[3] = { 12.3,1.45,6.432 };
+	char tab3[3] = { 'a','b','c' };
+	int tab4[] = { 1,2,3,4,5,6 };
+	for (int i = 0; i < size(tab1); i++)
+	{
+		cout << tab1[i] << endl;
+	}
+}
+
+void wprowadzanie() {
+	int tab1[4][3];
+	int suma = 0;
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			cout << "Podaj " << i << " " << j << ": ";
+			cin >> tab1[i][j];
+		}
+	}
+	for (int i = 0; i < 4; i++) 
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			cout << tab1[i][j]<<" ";
+			suma += tab1[i][j];
+		}
+		cout << endl;
+	}
+	cout << suma;
+}
+
 int main() {
 	//pierw();
 	//drug();
 	//trzec();
-	czwarte();
+	//czwarte();
 	//piate();
+	//int k = 20;
+	//buzki(k);
+	//buzki2(k);
+	//tablice();
+	wprowadzanie();
 	return 0;
 }
