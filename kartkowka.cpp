@@ -61,6 +61,22 @@ int main()
 
 	cout << endl;
 
+	for (int i = 0; i < size(s); i++)
+	{
+		//Wypisanie tylko liczb
+		if (isdigit(s[i])) {
+			cout << s[i];
+		}
+		//Wypisanie tylko cyfr
+		if (isalpha(s[i])) {
+			cout << s[i];
+		}
+
+		//Wypisanie tylko znakow
+		if (!isalnum(s[i])) {
+			cout << s[i];
+		}
+	}
 
 
 	//Zerowanie stringa
