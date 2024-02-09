@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main() {
+    // Zadeklaruj łańcuch s[]="abcdefghijkl"
+    char s[] = "abcdefghijkl";
+
+    // Zadeklaruj łańcuch t[]="mnopqrstuvzxz"
+    char t[] = "mnopqrstuvzxz";
+
+    // 1. Oblicz długość łańcucha t[]
+    int dlugosc_t = strlen(t);
+    cout << "Długość łańcucha t[]: " << dlugosc_t << endl;
+
+    // 2. Połącz oba łańcuch aby wyszedł cały alfabet
+    char caly_alfabet[26 + 12]; // 26 liter alfabetu + 12 znaków z t
+    strcpy(caly_alfabet, s);
+    strcat(caly_alfabet, t);
+    cout << "Cały alfabet: " << caly_alfabet << endl;
+
+    // 3. Połącz w taki sposób lańcuchy aby wyszedł łańcuch „mnopqfghijkl"
+    char laczenie[13];
+    strncpy(laczenie, t, 5);
+    strncpy(laczenie + 5, s + 5, 7);
+    laczenie[12] = '\0';
+    cout << "Połączony łańcuch: " << laczenie << endl;
+
+    // 4. Zadeklaruj łańcuch pusty p[256] tak, by można było do niego wprowadzać tekst z klawiatury. Zamień wszystkie samogłoski na znak #
+    char p[256];
+    cout << "Wprowadź tekst: ";
+    cin.getline(p, 256);
+
+    char samogloski[] = "aeiouyAEIOUY";
+    for (int i = 0; i < strlen(p); ++i) {
+        for (int j = 0; j < strlen(samogloski); ++j) {
+            if (p[i] == samogloski[j]) {
+                p[i] = '#';
+                break;
+            }
+        }
+    }
+    cout << "Tekst po zamianie samogłosek na #: " << p << endl;
+
+    // 5. Zadeklaruj łańcuch pusty q(256) tak, by można było do niego wprowadzać tekst z klawiatury. Zamień litery różne od małych liter na znak #
+    char q[256];
+    cout << "Wprowadź tekst: ";
+    cin.getline(q, 256);
+
+    for (int i = 0; i < strlen(q); ++i) {
+        if (!((q[i] >= 'a' && q[i] <= 'z'))) {
+            q[i] = '#';
+        }
+    }
+    cout << "Tekst po zamianie liter różnych od małych liter na #: " << q << endl;
+
+    return 0;
+}
